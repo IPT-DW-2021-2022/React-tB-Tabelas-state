@@ -6,11 +6,12 @@ import React from "react";
 import Tabela4 from "./Tabela4";
 
 class App extends React.Component {
-  render() {
-    // definição de dados em modo 'props'
-    // estes dados têm uma grande particularidade: Não se podem alterar
-    // https://www.json.org/json-en.html
-    const alunos = [
+
+  // definição de dados em modo 'STATE'
+  // estes dados têm uma grande particularidade: PODEM ser alterados
+  // https://www.json.org/json-en.html
+  state = {
+    alunos: [
       {
         nome: "Ana",
         apelido: "Silva",
@@ -20,7 +21,13 @@ class App extends React.Component {
         apelido: "Lopes",
       },
     ]
+  }
 
+
+
+  render() {
+    // deferenciar os dados armazenados em STATE, para dentro do método
+    const { alunos } = this.state;
 
     return (
       <div className="container">
