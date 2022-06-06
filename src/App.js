@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+/**
+ * App.js
+ */
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from "react";
+import Tabela4 from "./Tabela4";
+
+class App extends React.Component {
+  render() {
+    // definição de dados em modo 'props'
+    // estes dados têm uma grande particularidade: Não se podem alterar
+    // https://www.json.org/json-en.html
+    const alunos = [
+      {
+        nome: "Ana",
+        apelido: "Silva",
+      },
+      {
+        nome: "Mário",
+        apelido: "Lopes",
+      },
+    ]
+
+
+    return (
+      <div className="container">
+        <h1>Alunos</h1>
+
+        <h4>Quarta tabela</h4>
+        <p>Uso de dados externos ao componente (State)</p>
+        <Tabela4 dadosAlunosIN={alunos} />
+
+        <br /><br />
+      </div>
+    )
+  }
+
 }
-
 export default App;
