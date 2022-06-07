@@ -11,6 +11,7 @@ function Cabecalho() {
             <tr>
                 <th>Nome</th>
                 <th>Apelido</th>
+                <th></th>
             </tr>
         </thead>
     )
@@ -24,6 +25,9 @@ const Corpo = (props) => {
             <tr key={index}>
                 <td>{aluno.nome}</td>
                 <td>{aluno.apelido}</td>
+                <td><button className="btn btn-outline-danger"
+                    onClick={ ()=> props.alunoARemoverOUT(index) }
+                >Apagar alunos</button></td>
             </tr>
         )
     })
@@ -38,12 +42,12 @@ class Tabela4 extends React.Component {
 
     render() {
 
-        const { dadosAlunosIN } = this.props;
+        const { dadosAlunosIN, alunoApagarOUT } = this.props;
 
         return (
             <table className="table table-striped table-success">
                 <Cabecalho />
-                <Corpo dadosTabelaIN={dadosAlunosIN} />
+                <Corpo dadosTabelaIN={dadosAlunosIN} alunoARemoverOUT={alunoApagarOUT} />
             </table>
         )
     }
